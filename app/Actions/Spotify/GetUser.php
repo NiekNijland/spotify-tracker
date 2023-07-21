@@ -20,7 +20,7 @@ class GetUser implements Action
     {
         return Cache::remember(
             'user-' . $this->userId,
-            86400, // 24 hours
+            3600, // 1 hour
             fn () => $this->getUser(),
         );
     }

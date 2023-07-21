@@ -13,8 +13,8 @@ class PlaylistStatisticsController extends Controller
     public function __invoke(string $playlistId): View
     {
         $accessToken = (new GetToken())->handle();
+        $playlist = (new GetPlaylist($accessToken, $playlistId))->handle();
 
-        dd($playlist);
         return view('spotify.playlist-statistics', [
             'playlist' => $playlist,
             'users' => $this->getUsers($accessToken, $playlist),

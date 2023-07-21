@@ -16,19 +16,10 @@ class GetPlaylist implements Action
     ) {
     }
 
-    public function handle(): array
-    {
-        return Cache::remember(
-            'playlist-' . $this->playlistId,
-            300, // 5 minutes
-            fn () => $this->getPlaylist(),
-        );
-    }
-
     /**
      * @throws JsonException
      */
-    private function getPlaylist(): array
+    public function handle(): array
     {
         $result = Http::withToken($this->accessToken)
             ->get('https://api.spotify.com/v1/playlists/' . $this->playlistId);

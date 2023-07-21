@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="border-gray-200 bg-white px-4 py-5 sm:px-6 ml-4">
+    <div class="border-gray-200 bg-white px-4 py-5">
         <div class="pb-5 flex flex-nowrap items-center justify-between border-b border-gray-300">
             <div class="flex items-center">
                 <div class="flex-shrink-0">
@@ -22,7 +22,7 @@
                 </a>
             </div>
         </div>
-        <ul role="list">
+        <ul role="list" class="mr-2">
             @foreach($users as $user)
                 <li class="flex justify-between gap-x-6 py-5 border-b border-dashed">
                     <div class="flex gap-x-4">

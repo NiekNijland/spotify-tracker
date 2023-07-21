@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Http;
 use JsonException;
 use RuntimeException;
 
-readonly class GetPlaylist implements Action
+class GetPlaylist implements Action
 {
     public function __construct(
-        private string $accessToken,
-        private string $playlistId,
+        private readonly string $accessToken,
+        private readonly string $playlistId,
     ) {
     }
 

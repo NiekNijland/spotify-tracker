@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Http;
 use JsonException;
 use RuntimeException;
 
-readonly class GetUser implements Action
+class GetUser implements Action
 {
     public function __construct(
-        private string $accessToken,
-        private string $userId,
+        private readonly string $accessToken,
+        private readonly string $userId,
     ) {
     }
 

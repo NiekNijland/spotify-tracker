@@ -13,6 +13,7 @@ use App\Data\Track;
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use RuntimeException;
 
@@ -23,10 +24,19 @@ readonly class GetPlaylist implements Action
         private string $playlistId,
     ) {}
 
+    public function handle(): Playlist
+    {
+        return Cache::remember(
+            'playlist-' . $this->playlistId,
+            3600, // 1 hour
+            fn () => $this->getPlaylist(),
+        );
+    }
+
     /**
      * @throws ConnectionException
      */
-    public function handle(): Playlist
+    private function getPlaylist(): Playlist
     {
         $result = Http::withToken($this->accessToken)
             ->get('https://api.spotify.com/v1/playlists/' . $this->playlistId);
@@ -92,7 +102,14 @@ readonly class GetPlaylist implements Action
                     album: $rawTrack['track']['album']['name'],
                     artist: $rawTrack['track']['artists'][0]['name'],
                     url: $rawTrack['track']['external_urls']['spotify'],
+                    image: isset($rawTrack['track']['album']['images'][0])
+                        ? new Image(url: $rawTrack['track']['album']['images'][0]['url'])
+                        : null,
                 ));
+            }
+
+            if (! is_string($result['tracks']['next'])) {
+                continue;
             }
 
             $rawTracks = Http::withToken($this->accessToken)

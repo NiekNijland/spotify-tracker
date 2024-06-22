@@ -10,7 +10,6 @@ use App\Data\SpotifyUser;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
-use JsonException;
 use RuntimeException;
 
 readonly class GetUser implements Action
@@ -30,7 +29,6 @@ readonly class GetUser implements Action
     }
 
     /**
-     * @throws JsonException
      * @throws ConnectionException
      */
     private function getUser(): SpotifyUser

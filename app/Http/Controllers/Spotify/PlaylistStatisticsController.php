@@ -7,21 +7,22 @@ namespace App\Http\Controllers\Spotify;
 use App\Actions\Auth\Spotify\GetToken;
 use App\Actions\Spotify\GetPlaylist;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Client\ConnectionException;
 use Illuminate\View\View;
 
 class PlaylistStatisticsController extends Controller
 {
-    /**
-     * @throws ConnectionException
-     */
-    public function __invoke(string $playlistId): View
+    public function __invoke(string $playlistId, string $page = 'contributors'): View
     {
+        if ($page !== 'contributors' && $page !== 'tracks') {
+            abort(404);
+        }
+
         $accessToken = (new GetToken())->handle();
         $playlist = (new GetPlaylist($accessToken, $playlistId))->handle();
 
         return view('spotify.playlist-statistics', [
             'playlist' => $playlist,
+            'page' => $page,
         ]);
     }
 }

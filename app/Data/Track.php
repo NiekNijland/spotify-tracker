@@ -17,5 +17,6 @@ class Track extends Data
         public string $album,
         public ?string $artist,
         public string $url,
+        public ?Image $image,
     ) {}
 }

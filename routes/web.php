@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('/griekenland', '/1XSciH5yuuecWWraLGMO38');
+Route::redirect('/amerika', '/1EcMDsGoy0PvQjBkLWB9mv');
 
 Route::get('/', HomeController::class);
-Route::get('/{playlistId}', PlaylistStatisticsController::class);
+Route::get('/{playlistId}/{page?}', PlaylistStatisticsController::class)->name('spotify.playlist-statistics');

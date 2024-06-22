@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Spotify;
 
 use App\Actions\Auth\Spotify\GetToken;
@@ -21,6 +23,10 @@ class PlaylistStatisticsController extends Controller
         ]);
     }
 
+    /**
+     * @param  array<string, array<string, mixed>>  $playlist
+     * @return array<int|string, array<string, mixed>>
+     */
     private function getUsers(string $accessToken, array $playlist): array
     {
         $users = [];

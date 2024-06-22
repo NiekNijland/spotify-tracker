@@ -1,0 +1,74 @@
+
+*** Shift SKU: 11
+*** Shift Version: d3c40e72fdc82be43c3743cb7d999a22177f3d4a (2024-06-16)
+
+*** Completed: Shift\Tasks\Laravel\Eleven\SlimmingComment
+*** Completed: Shift\Tasks\Laravel\UpsellConsolidateNamespace
+>>> Event: formatting with Pint using laravel against defaults
+*** Completed: Shift\Tasks\Laravel\FormatCode
+*** Completed: Shift\Tasks\Php\ShortArraySyntax
+>>> Event: file does not exist: vendor/autoload.php
+*** Completed: Shift\Tasks\Php\ClassProperty
+*** Completed: Shift\Tasks\Workbench\OptionalToNullsafe
+*** Completed: Shift\Tasks\Workbench\FakerMethods
+*** Completed: Shift\Tasks\Workbench\RemoveModelProperty
+*** Completed: Shift\Tasks\Laravel\Eight\FluentRouteMethods
+*** Completed: Shift\Tasks\Laravel\Fixer\ClassBasedRoutes
+*** Completed: Shift\Tasks\Laravel\Fixer\LangFolder
+*** Completed: Shift\Tasks\Laravel\Nine\LangFolder
+*** Completed: Shift\Tasks\Laravel\Eleven\Deprecations
+>>> Event: custom core files:  Data: ["app\/Console\/Kernel.php","app\/Exceptions\/Handler.php","app\/Http\/Kernel.php","app\/Http\/Middleware\/PreventRequestsDuringMaintenance.php","app\/Http\/Middleware\/TrimStrings.php","app\/Http\/Middleware\/TrustHosts.php","app\/Http\/Middleware\/TrustProxies.php","app\/Http\/Middleware\/ValidateSignature.php","app\/Providers\/AuthServiceProvider.php","app\/Providers\/BroadcastServiceProvider.php","app\/Providers\/EventServiceProvider.php","app\/Providers\/RouteServiceProvider.php"]
+*** Completed: Shift\Tasks\Laravel\Eleven\SlimSkeleton
+>>> Event: matched core file: artisan with version: 10.3.3
+>>> Event: matched core file: app/Http/Kernel.php with version: 10.3.3
+cp: can't stat '/opt/shift/resources/laravel5-expanded/app/Http/Kernel.php.11.0.6': No such file or directory
+>>> Event: matched core file: public/index.php with version: 10.3.3
+*** Completed: Shift\Tasks\Laravel\Eleven\CoreFiles
+>>> Event: matched core file: config/sanctum.php with version: 10.2.6
+>>> Event: found custom envs Data: ["BCRYPT_ROUNDS","CACHE_STORE","DB_CONNECTION","MAIL_MAILER","QUEUE_CONNECTION","SESSION_DRIVER"]
+*** Completed: Shift\Tasks\Laravel\Eleven\Config
+*** Completed: Shift\Tasks\Laravel\Eleven\EnvVariables
+>>> Event: matched core file: bootstrap/app.php with version: 10.3.3
+*** Completed: Shift\Tasks\Laravel\Eleven\Bootstrap
+*** Completed: Shift\Tasks\Laravel\Eleven\HttpKernel
+>>> Event: found consolidateable providers:  Data: ["app\/Providers\/AuthServiceProvider.php","app\/Providers\/BroadcastServiceProvider.php","app\/Providers\/EventServiceProvider.php","app\/Providers\/RouteServiceProvider.php"]
+*** Completed: Shift\Tasks\Laravel\Eleven\ConsolidateProviders
+*** Completed: Shift\Tasks\Laravel\Eleven\RegisterProviders
+*** Completed: Shift\Tasks\Laravel\Eleven\ExceptionHandler
+>>> Event: matched core file: routes/console.php with version: 10.3.3
+>>> Event: custom routes:  Data: ["routes\/api.php","routes\/channels.php"]
+*** Completed: Shift\Tasks\Laravel\Eleven\Routes
+>>> Event: found custom console kernel
+*** Completed: Shift\Tasks\Laravel\Eleven\ConsoleKernel
+*** Completed: Shift\Tasks\Laravel\Eleven\Dependencies
+*** Completed: Shift\Tasks\PerformCommit
+*** Completed: Shift\Tasks\Laravel\Ten\PhpUnit10
+*** Completed: Shift\Tasks\Laravel\Nine\PhpUnitConfig
+*** Completed: Shift\Tasks\Laravel\Nine\AnonymousMigrations
+*** Completed: Shift\Tasks\Laravel\Ten\PasswordResetTokens
+*** Completed: Shift\Tasks\Laravel\Eleven\ModelCasts
+*** Completed: Shift\Tasks\Workbench\Php\PhpUnitMethodSignatures
+find: app/Console/Commands: No such file or directory
+find: app/Http/Requests: No such file or directory
+find: app/Http/Resources: No such file or directory
+find: app/Jobs: No such file or directory
+find: app/Events: No such file or directory
+find: app/Listeners: No such file or directory
+find: app/Policies: No such file or directory
+find: app/Observers: No such file or directory
+find: app/Notifications: No such file or directory
+*** Completed: Shift\Tasks\Laravel\Eleven\TypeHints
+*** Completed: Shift\Tasks\Laravel\Eleven\Controller
+>>> Event: matched core file: tests/CreatesApplication.php with version: 10.3.3
+>>> Event: matched core file: tests/TestCase.php with version: 10.3.3
+*** Completed: Shift\Tasks\Laravel\Eleven\TestCase
+*** Completed: Shift\Tasks\Laravel\Eleven\Dbal
+*** Completed: Shift\Tasks\Laravel\Eleven\FloatingPoint
+*** Completed: Shift\Tasks\Laravel\Eleven\VendorMigrations
+*** Completed: Shift\Tasks\Laravel\Eleven\Miscellaneous
+*** Completed: Shift\Tasks\Laravel\Eleven\DefaultFiles
+*** Completed: Shift\Tasks\Laravel\FixNamespace
+>>> Event: formatting with Pint using laravel against defaults
+*** Completed: Shift\Tasks\Laravel\Cleanup
+*** Completed: Shift\Tasks\Laravel\RepublishReminder
+*** Completed: Shift\Tasks\Laravel\UpsellMicroShifts

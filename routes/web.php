@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Spotify\PlaylistStatisticsController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', '/1XSciH5yuuecWWraLGMO38');
+Route::redirect('/griekenland', '/1XSciH5yuuecWWraLGMO38');
 
+Route::get('/', HomeController::class);
 Route::get('/{playlistId}', PlaylistStatisticsController::class);

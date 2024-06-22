@@ -5,23 +5,22 @@ declare(strict_types=1);
 namespace App\Actions\Spotify;
 
 use App\Actions\Action;
+use App\Data\Image;
+use App\Data\SpotifyUser;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use JsonException;
 use RuntimeException;
 
-class GetUser implements Action
+readonly class GetUser implements Action
 {
     public function __construct(
-        private readonly string $accessToken,
-        private readonly string $userId,
+        private string $accessToken,
+        private string $userId,
     ) {}
 
-    /**
-     * @return array<string, mixed>
-     */
-    public function handle(): array
+    public function handle(): SpotifyUser
     {
         return Cache::remember(
             'user-' . $this->userId,
@@ -31,12 +30,10 @@ class GetUser implements Action
     }
 
     /**
-     * @return array<string, mixed>
-     *
      * @throws JsonException
      * @throws ConnectionException
      */
-    private function getUser(): array
+    private function getUser(): SpotifyUser
     {
         $response = Http::withToken($this->accessToken)
             ->get('https://api.spotify.com/v1/users/' . $this->userId);
@@ -45,6 +42,15 @@ class GetUser implements Action
             throw new RuntimeException('Failed to get user');
         }
 
-        return json_decode($response->body(), true, 512, JSON_THROW_ON_ERROR);
+        $response = $response->json();
+
+        return new SpotifyUser(
+            id: $response['id'],
+            name: $response['display_name'],
+            url: $response['external_urls']['spotify'],
+            image: isset($response['images'][0])
+                ? new Image(url: $response['images'][0]['url'])
+                : null,
+        );
     }
 }

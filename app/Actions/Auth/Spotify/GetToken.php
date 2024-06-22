@@ -31,7 +31,7 @@ class GetToken implements Action
                 'client_secret' => config('spotify.secret'),
             ]);
 
-        if (!$response->successful()) {
+        if (! $response->successful()) {
             throw new RuntimeException('Failed to get token');
         }
 

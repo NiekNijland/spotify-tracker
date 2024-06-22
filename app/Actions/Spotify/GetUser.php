@@ -19,7 +19,7 @@ class GetUser implements Action
     public function handle(): array
     {
         return Cache::remember(
-            'user-' . $this->userId,
+            'user-'.$this->userId,
             3600, // 1 hour
             fn () => $this->getUser(),
         );
@@ -31,9 +31,9 @@ class GetUser implements Action
     private function getUser(): array
     {
         $response = Http::withToken($this->accessToken)
-            ->get('https://api.spotify.com/v1/users/' . $this->userId);
+            ->get('https://api.spotify.com/v1/users/'.$this->userId);
 
-        if (!$response->successful()) {
+        if (! $response->successful()) {
             throw new RuntimeException('Failed to get user');
         }
 

@@ -25,7 +25,7 @@ class PlaylistStatisticsController extends Controller
     {
         $users = [];
         foreach ($playlist['tracks']['items'] as $track) {
-            if (!isset($users[$track['added_by']['id']])) {
+            if (! isset($users[$track['added_by']['id']])) {
                 $users[$track['added_by']['id']] = [
                     'name' => $track['added_by']['id'],
                     'id' => $track['added_by']['id'],
